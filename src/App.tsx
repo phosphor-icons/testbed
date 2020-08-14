@@ -273,7 +273,7 @@ function App() {
               Download Icons
             </button>
             <button className="test-button">
-              <Smiley size={24} />
+              <Smiley size={24} weight={weight} />
               Download Icons
             </button>
           </div>
@@ -289,7 +289,7 @@ function App() {
           </div>
           <div className="phone-container">
             <button className="test-button medium">
-              <Smiley size={32} />
+              <Smiley size={32} weight={weight} />
               Download Icons
             </button>
           </div>
@@ -305,7 +305,7 @@ function App() {
           </div>
           <div className="phone-container">
             <button className="test-button large">
-              <Smiley size={48} />
+              <Smiley size={48} weight={weight} />
               Download Icons
             </button>
           </div>
