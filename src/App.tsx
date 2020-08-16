@@ -175,36 +175,42 @@ function App() {
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />,
         <img
           key={defaultIcons.length + 1}
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />,
         <img
           key={defaultIcons.length + 2}
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />,
         <img
           key={defaultIcons.length + 3}
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />,
         <img
           key={defaultIcons.length + 4}
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />,
         <img
           key={defaultIcons.length + 5}
           height={size}
           width={size}
           src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+          alt=""
         />
       );
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -269,6 +275,7 @@ function App() {
                 height={24}
                 width={24}
                 src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                alt=""
               />
               Download Icons
             </button>
@@ -283,6 +290,7 @@ function App() {
                 height={32}
                 width={32}
                 src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                alt=""
               />
               Download Icons
             </button>
@@ -299,6 +307,7 @@ function App() {
                 height={48}
                 width={48}
                 src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                alt=""
               />
               Download Icons
             </button>
