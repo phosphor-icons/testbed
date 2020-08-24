@@ -132,7 +132,7 @@ function App() {
   const [rand, setRand] = useState<number>(0);
   const [size, setSize] = useState<number>(32);
   const [weight, setWeight] = useState<Weight>("regular");
-  const [testIconString, setTestIconString] = useState<string>("");
+  const [testIconStrings, setTestIconStrings] = useState<string[]>([]);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     acceptedFiles.forEach((file) => {
@@ -142,7 +142,7 @@ function App() {
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = () => {
         const binaryStr = reader.result as string;
-        setTestIconString(binaryStr);
+        setTestIconStrings((existing) => [...existing, binaryStr]);
         const suffix = file.name.split(".svg")[0].split("-").slice(-1)[0];
         switch (suffix) {
           case "thin":
@@ -168,51 +168,54 @@ function App() {
     const shuffled: React.ReactNode[] = defaultIcons.map((Icon, index) => (
       <Icon key={index} />
     ));
-    if (testIconString)
-      shuffled.push(
-        <img
-          key={defaultIcons.length}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />,
-        <img
-          key={defaultIcons.length + 1}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />,
-        <img
-          key={defaultIcons.length + 2}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />,
-        <img
-          key={defaultIcons.length + 3}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />,
-        <img
-          key={defaultIcons.length + 4}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />,
-        <img
-          key={defaultIcons.length + 5}
-          height={size}
-          width={size}
-          src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
-          alt=""
-        />
-      );
+    if (testIconStrings.length) {
+      testIconStrings.forEach((svgString, index) => {
+        shuffled.push(
+          <img
+            key={defaultIcons.length * index + 100}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />,
+          <img
+            key={defaultIcons.length * index + 100 + 1}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />,
+          <img
+            key={defaultIcons.length * index + 100 + 2}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />,
+          <img
+            key={defaultIcons.length * index + 100 + 3}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />,
+          <img
+            key={defaultIcons.length * index + 100 + 4}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />,
+          <img
+            key={defaultIcons.length * index + 100 + 5}
+            height={size}
+            width={size}
+            src={"data:image/svg+xml," + encodeURIComponent(svgString)}
+            alt=""
+          />
+        );
+      });
+    }
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i);
       const temp = shuffled[i];
@@ -220,16 +223,28 @@ function App() {
       shuffled[j] = temp;
     }
     return shuffled;
-  }, [size, testIconString, rand]);
+  }, [size, testIconStrings, rand]);
 
   return (
     <div className="app">
       <h1>Phosphor Testbed</h1>
-      <Dropzone multiple={false} accept="image/*" onDrop={onDrop}>
+      <textarea
+        value={testIconStrings[0] ?? ""}
+        onChange={(e) => {
+          const {
+            target: { value },
+          } = e;
+          setTestIconStrings((existing) => {
+            const [first, ...rest] = existing;
+            return [value, ...rest];
+          });
+        }}
+      />
+      <Dropzone multiple={true} accept="image/*" onDrop={onDrop}>
         {({ getRootProps, getInputProps }) => (
           <div className="dropzone" {...getRootProps()}>
             <input {...getInputProps()} />
-            <p>Drag 'n drop an SVG here, or click to select a file</p>
+            <p>Drag 'n drop one or more SVGs here, or click to select files</p>
           </div>
         )}
       </Dropzone>
@@ -252,6 +267,7 @@ function App() {
         <option value="fill">Fill</option>
         <option value="duotone">Duotone</option>
       </select>
+      <button onClick={() => setTestIconStrings([])}>Clear</button>
       <div className="phone-container">
         <div className="phone-chrome">
           <IconContext.Provider
@@ -267,14 +283,16 @@ function App() {
         </div>
       </div>
 
-      {testIconString && (
+      {testIconStrings.length && (
         <>
           <div className="phone-container">
             <button className="test-button">
               <img
                 height={24}
                 width={24}
-                src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                src={
+                  "data:image/svg+xml," + encodeURIComponent(testIconStrings[0])
+                }
                 alt=""
               />
               Download Icons
@@ -289,7 +307,9 @@ function App() {
               <img
                 height={32}
                 width={32}
-                src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                src={
+                  "data:image/svg+xml," + encodeURIComponent(testIconStrings[0])
+                }
                 alt=""
               />
               Download Icons
@@ -306,7 +326,9 @@ function App() {
               <img
                 height={48}
                 width={48}
-                src={"data:image/svg+xml," + encodeURIComponent(testIconString)}
+                src={
+                  "data:image/svg+xml," + encodeURIComponent(testIconStrings[0])
+                }
                 alt=""
               />
               Download Icons
