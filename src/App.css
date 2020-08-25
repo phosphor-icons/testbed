@@ -30,7 +30,6 @@
 }
 
 button {
-  font-weight: bold;
   margin: 16px
 }
 
@@ -45,6 +44,7 @@ button.test-button {
   justify-content: center;
   border: none;
   border-radius: 6px;
+  font-weight: bold;
   background-color: #ffd171;
   padding: 12px 32px 12px 24px;
 }
