@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/phosphor-testbed/static/css/main.aa5df506.chunk.css",
-    "main.js": "/phosphor-testbed/static/js/main.0f4db771.chunk.js",
-    "main.js.map": "/phosphor-testbed/static/js/main.0f4db771.chunk.js.map",
+    "main.js": "/phosphor-testbed/static/js/main.5c5de2bf.chunk.js",
+    "main.js.map": "/phosphor-testbed/static/js/main.5c5de2bf.chunk.js.map",
     "runtime-main.js": "/phosphor-testbed/static/js/runtime-main.bacafef9.js",
     "runtime-main.js.map": "/phosphor-testbed/static/js/runtime-main.bacafef9.js.map",
-    "static/js/2.399e6845.chunk.js": "/phosphor-testbed/static/js/2.399e6845.chunk.js",
-    "static/js/2.399e6845.chunk.js.map": "/phosphor-testbed/static/js/2.399e6845.chunk.js.map",
+    "static/js/2.4a3568b8.chunk.js": "/phosphor-testbed/static/js/2.4a3568b8.chunk.js",
+    "static/js/2.4a3568b8.chunk.js.map": "/phosphor-testbed/static/js/2.4a3568b8.chunk.js.map",
     "index.html": "/phosphor-testbed/index.html",
-    "precache-manifest.80512eb2594060aed12863007b42041c.js": "/phosphor-testbed/precache-manifest.80512eb2594060aed12863007b42041c.js",
+    "precache-manifest.3e921c14aa09bea99d610f5acc19f48a.js": "/phosphor-testbed/precache-manifest.3e921c14aa09bea99d610f5acc19f48a.js",
     "service-worker.js": "/phosphor-testbed/service-worker.js",
     "static/css/main.aa5df506.chunk.css.map": "/phosphor-testbed/static/css/main.aa5df506.chunk.css.map",
-    "static/js/2.399e6845.chunk.js.LICENSE.txt": "/phosphor-testbed/static/js/2.399e6845.chunk.js.LICENSE.txt"
+    "static/js/2.4a3568b8.chunk.js.LICENSE.txt": "/phosphor-testbed/static/js/2.4a3568b8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bacafef9.js",
-    "static/js/2.399e6845.chunk.js",
+    "static/js/2.4a3568b8.chunk.js",
     "static/css/main.aa5df506.chunk.css",
-    "static/js/main.0f4db771.chunk.js"
+    "static/js/main.5c5de2bf.chunk.js"
   ]
 }
