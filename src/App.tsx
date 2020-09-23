@@ -169,7 +169,7 @@ function App() {
 
   const shuffled = useMemo(() => {
     const shuffled: React.ReactNode[] = defaultIcons.map((Icon, index) => (
-      <Icon key={index} />
+      <Icon key={index} className="icon" />
     ));
     if (testIconStrings.length) {
       testIconStrings.forEach((svgString, index) => {
@@ -180,6 +180,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />,
           <img
             key={defaultIcons.length * index + 100 + 1}
@@ -187,6 +188,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />,
           <img
             key={defaultIcons.length * index + 100 + 2}
@@ -194,6 +196,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />,
           <img
             key={defaultIcons.length * index + 100 + 3}
@@ -201,6 +204,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />,
           <img
             key={defaultIcons.length * index + 100 + 4}
@@ -208,6 +212,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />,
           <img
             key={defaultIcons.length * index + 100 + 5}
@@ -215,6 +220,7 @@ function App() {
             width={size}
             src={"data:image/svg+xml," + encodeURIComponent(svgString)}
             alt=""
+            className="icon"
           />
         );
       });
@@ -231,46 +237,55 @@ function App() {
   return (
     <div className="app">
       <h1>Phosphor Testbed</h1>
-      <textarea
-        value={testIconStrings[0] ?? ""}
-        onChange={(e) => {
-          const {
-            target: { value },
-          } = e;
-          setTestIconStrings((existing) => {
-            const [, ...rest] = existing;
-            return [value, ...rest];
-          });
-        }}
-      />
-      <Dropzone multiple={true} accept="image/*" onDrop={onDrop}>
-        {({ getRootProps, getInputProps }) => (
-          <div className="dropzone" {...getRootProps()}>
-            <input {...getInputProps()} />
-            <p>Drag 'n drop one or more SVGs here, or click to select files</p>
-          </div>
-        )}
-      </Dropzone>
-      <button onClick={() => setRand(Math.random())}>Shuffle</button>
-      <input
-        min={16}
-        max={192}
-        value={size}
-        type="range"
-        onChange={({ target: { value } }) => setSize(Number(value))}
-      />
-      <select
-        value={weight}
-        onChange={({ target: { value } }) => setWeight(value as Weight)}
-      >
-        <option value="thin">Thin</option>
-        <option value="light">Light</option>
-        <option value="regular">Regular</option>
-        <option value="bold">Bold</option>
-        <option value="fill">Fill</option>
-        <option value="duotone">Duotone</option>
-      </select>
-      <button onClick={() => setTestIconStrings([])}>Clear</button>
+      <div className="stickymenu">
+        <div className="stickyinputs">
+          <textarea
+            value={testIconStrings[0] ?? ""}
+            onChange={(e) => {
+              const {
+                target: { value },
+              } = e;
+              setTestIconStrings((existing) => {
+                const [, ...rest] = existing;
+                return [value, ...rest];
+              });
+            }}
+            onClick={(e) => e.currentTarget.select()}
+          />
+          <Dropzone multiple={true} accept="image/*" onDrop={onDrop}>
+            {({ getRootProps, getInputProps }) => (
+              <div className="dropzone" {...getRootProps()}>
+                <input {...getInputProps()} />
+                <p>
+                  Drag 'n drop one or more SVGs here, or click to select files
+                </p>
+              </div>
+            )}
+          </Dropzone>
+        </div>
+        <button onClick={() => setRand(Math.random())}>Shuffle</button>
+        <input
+          min={16}
+          max={192}
+          step={4}
+          value={size}
+          type="range"
+          onChange={({ target: { value } }) => setSize(Number(value))}
+        />
+        {size}
+        <select
+          value={weight}
+          onChange={({ target: { value } }) => setWeight(value as Weight)}
+        >
+          <option value="thin">Thin</option>
+          <option value="light">Light</option>
+          <option value="regular">Regular</option>
+          <option value="bold">Bold</option>
+          <option value="fill">Fill</option>
+          <option value="duotone">Duotone</option>
+        </select>
+        <button onClick={() => setTestIconStrings([])}>Clear</button>
+      </div>
       <div className="phone-container">
         <div className="phone-chrome">
           <IconContext.Provider
