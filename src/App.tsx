@@ -301,7 +301,7 @@ function App() {
         </div>
       </div>
 
-      {testIconStrings.length && (
+      {testIconStrings.length ? (
         <>
           <div className="phone-container">
             <button className="test-button">
@@ -359,7 +359,7 @@ function App() {
             </button>
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 }
