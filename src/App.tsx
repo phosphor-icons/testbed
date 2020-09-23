@@ -263,16 +263,6 @@ function App() {
             )}
           </Dropzone>
         </div>
-        <button onClick={() => setRand(Math.random())}>Shuffle</button>
-        <input
-          min={16}
-          max={192}
-          step={4}
-          value={size}
-          type="range"
-          onChange={({ target: { value } }) => setSize(Number(value))}
-        />
-        {size}
         <select
           value={weight}
           onChange={({ target: { value } }) => setWeight(value as Weight)}
@@ -284,6 +274,16 @@ function App() {
           <option value="fill">Fill</option>
           <option value="duotone">Duotone</option>
         </select>
+        <input
+          min={16}
+          max={192}
+          step={4}
+          value={size}
+          type="range"
+          onChange={({ target: { value } }) => setSize(Number(value))}
+        />
+        {size}
+        <button onClick={() => setRand(Math.random())}>Shuffle</button>
         <button onClick={() => setTestIconStrings([])}>Clear</button>
       </div>
       <div className="phone-container">
