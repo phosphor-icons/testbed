@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/phosphor-testbed/precache-manifest.ffc4b5b67347e98124950c0e746e16ae.js"
+  "/phosphor-testbed/precache-manifest.2b678d5910ce72db666475b8be4bfca2.js"
 );
 
 self.addEventListener('message', (event) => {
