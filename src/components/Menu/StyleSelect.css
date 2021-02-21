@@ -1,0 +1,123 @@
+/* .style-select {
+  position: relative;
+}
+
+.style-select {
+  background-color: gold;
+  border-radius: 24px;
+  box-shadow: 4px 4px #ccc;
+  display: none;
+}
+
+.style-select option {
+  background-color: gold;
+  border-radius: 24px;
+  display: none;
+} */
+
+.react-dropdown-select {
+  /* 
+  height: 48px !important;
+  justify-content: flex-start;
+  color: white;*/
+  width: 176px !important;
+  padding: 12px 24px !important;
+  height: 48px;
+  border-radius: 6px !important;
+  border: 1px solid #925bff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+}
+
+.react-dropdown-select-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.react-dropdown-select-content svg {
+  margin: 0 12px 0 0;
+}
+
+.react-dropdown-select:focus-within {
+  background-color: #925bff;
+  color: white !important;
+  color: black;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* .react-dropdown-select-type-single {
+  height: 100% !important;
+} */
+
+/* .react-dropdown-select-clear,
+.react-dropdown-select-dropdown-handle {
+  color: #fff;
+} */
+
+/* .react-dropdown-select-option {
+  border: 1px solid #000;
+} */
+
+.react-dropdown-select-item {
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  padding: 12px 24px !important;
+}
+
+.react-dropdown-select-item svg {
+  margin: 0 12px 0 24px;
+}
+
+.react-dropdown-select-input {
+  color: #fff;
+}
+
+.react-dropdown-select-dropdown-position-bottom {
+}
+
+.react-dropdown-select-dropdown {
+  background-color: #925bff !important;
+  color: white !important;
+  position: absolute;
+  left: 0;
+  border: none;
+  width: 500px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px !important;
+  max-height: 300px;
+  overflow: auto;
+  z-index: 9;
+  /* background: rgb(29, 20, 20) !important; */
+  box-shadow: none;
+}
+.react-dropdown-select-item {
+  font-weight: normal !important;
+}
+
+.react-dropdown-select-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-dropdown-select-item.react-dropdown-select-item-selected,
+.react-dropdown-select-item.react-dropdown-select-item-active {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-dropdown-select-item:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-dropdown-select-item.react-dropdown-select-item-disabled {
+  background: #777;
+  color: #ccc;
+}
