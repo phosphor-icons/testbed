@@ -21,7 +21,7 @@ const Grid: React.FC<{}> = () => {
             <Icon key={`${Icon.displayName}-${index}`} />
           ) : (
             <img
-              key={Icon.name}
+              key={`${Icon.name}-${index}`}
               height={size}
               width={size}
               src={`data:image/svg+xml,${encodeURIComponent(Icon.svgString)}`}

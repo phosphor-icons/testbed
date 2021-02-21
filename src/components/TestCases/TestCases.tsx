@@ -45,10 +45,6 @@ const TestCases: React.FC<{}> = () => {
     [svgStringDark]
   );
 
-  console.log(fileInput[0]);
-  console.log(svgStringLight);
-  console.log(svgStringDark);
-
   return (
     <IconContext.Provider
       value={{ size: "1em", weight, color: "currentColor", mirrored: false }}

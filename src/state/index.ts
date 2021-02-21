@@ -65,15 +65,19 @@ export const iconSetSelector = selector<DisplayIcon[]>({
     const fileInput = get(fileInputAtom);
 
     let testIcons: DisplayIcon[] = [];
-    if (textInput) testIcons.push({ name: "textInput", svgString: textInput });
-
-    if (fileInput)
+    if (textInput) {
       testIcons = testIcons.concat(
-        fileInput.map((file, index) => ({
-          name: `fileInput-${index}`,
-          svgString: file,
-        }))
+        new Array(3).fill({ name: "textInput", svgString: textInput })
       );
+    }
+
+    if (fileInput) {
+      const newIcons = fileInput.map((file, index) => ({
+        name: `fileInput-${index}`,
+        svgString: file,
+      }));
+      testIcons = [...testIcons, ...newIcons, ...newIcons, ...newIcons];
+    }
 
     if (showControls) testIcons = testIcons.concat(controlIcons);
 
