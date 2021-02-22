@@ -29,16 +29,16 @@ export const IconButton = styled.div<{ $size: number, $radius: number; $dark?: b
 export const TextButtonContainer = styled.div`
   margin: 40px 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 `;
 
 export const TextButton = styled.span<{ $large?: boolean }>`
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: ${({ $large }) => ($large ? "12.5" : "10.5")}px;
+  gap: 8px;
   border-radius: ${({ $large }) => ($large ? "80" : "24")}px;
-  padding: 12px 20px 12px 16px;
+  padding: ${({ $large }) => $large ? "12px 32px 12px 24px" : "12px 20px 12px 16px"};
   background: #ebeaec;
   margin-right: 32px;
   font-size: ${({ $large }) => ($large ? 24 : 16)}px;

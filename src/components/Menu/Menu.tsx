@@ -128,7 +128,7 @@ const Menu: React.FC<{}> = () => {
                   </div>
                 ) : (
                   <DropInputLabel>
-                    <UploadSimple size={24} />
+                    <UploadSimple size={18} />
                     <p>Drop SVGs or click to upload</p>
                   </DropInputLabel>
                 )}
@@ -154,7 +154,7 @@ const Menu: React.FC<{}> = () => {
           Control set
         </ToggleButton>
         <MainButton onClick={(e) => shuffle(e.timeStamp)}>
-          <Shuffle size={24} /> Shuffle
+          <Shuffle size={18} /> Shuffle
         </MainButton>
       </SettingsContainer>
     </>

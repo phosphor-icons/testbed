@@ -26,11 +26,10 @@
   border-radius: 6px !important;
   border: 1px solid #925bff !important;
   background-color: rgba(255, 255, 255, 0.05);
-  font-size: 16px;
   box-sizing: border-box;
   outline: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .react-dropdown-select-content {

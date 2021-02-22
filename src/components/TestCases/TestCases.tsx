@@ -51,7 +51,7 @@ const TestCases: React.FC<{}> = () => {
     >
       <TestCaseContainer>
         <IconButtonContainer>
-          <IconButton $size={64} $radius={32} $dark>
+          <IconButton $size={72} $radius={36} $dark>
             {svgStringDark ? (
               <img
                 height={48}
@@ -63,7 +63,7 @@ const TestCases: React.FC<{}> = () => {
               <Smiley size={48} />
             )}
           </IconButton>
-          <IconButton $size={56} $radius={20} $dark>
+          <IconButton $size={56} $radius={36} $dark>
             {svgStringDark ? (
               <img
                 height={32}
@@ -75,7 +75,7 @@ const TestCases: React.FC<{}> = () => {
               <Smiley size={32} />
             )}
           </IconButton>
-          <IconButton $size={48} $radius={8} $dark>
+          <IconButton $size={48} $radius={36} $dark>
             {svgStringDark ? (
               <img
                 height={24}
@@ -87,7 +87,7 @@ const TestCases: React.FC<{}> = () => {
               <Smiley size={24} />
             )}
           </IconButton>
-          <IconButton $size={32} $radius={0} $dark>
+          <IconButton $size={32} $radius={36} $dark>
             {svgStringDark ? (
               <img
                 height={16}
@@ -99,7 +99,7 @@ const TestCases: React.FC<{}> = () => {
               <Smiley size={16} />
             )}
           </IconButton>
-          <IconButton $size={64} $radius={32}>
+          <IconButton $size={72} $radius={36}>
             {svgStringDark ? (
               <img
                 height={48}

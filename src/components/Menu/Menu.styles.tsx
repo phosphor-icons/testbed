@@ -77,7 +77,7 @@ export const DropInput = styled.div`
   box-sizing: content-box;
   border-radius: 6px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
+  font-size: 13px;
   outline: none;
   cursor: pointer;
   max-height: 214px;
@@ -85,6 +85,7 @@ export const DropInput = styled.div`
 
   & p {
     margin: 0;
+    font-size: 13px;
   }
 `;
 
@@ -95,7 +96,6 @@ export const DropInputLabel = styled.div`
 
   & p {
     flex: 1;
-    margin: 0;
     padding: 0;
   }
 `;
@@ -135,6 +135,7 @@ export const SettingsContainer = styled.menu`
   align-items: center;
   gap: 16px;
   padding: 16px 0;
+  margin: 0 0 16px;
   background-color: white;
 `;
 
@@ -181,7 +182,7 @@ export const Slider = styled.input.attrs({ type: "range" })`
 `;
 
 export const SliderLabel = styled.span`
-  width: 48px;
+  width: 36px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
+  font-size: 13px;
 `;
