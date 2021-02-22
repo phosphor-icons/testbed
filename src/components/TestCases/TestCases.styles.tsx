@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const TestCaseContainer = styled.div`
-  padding-left: 40px;
   color: #35313d;
 `;
 

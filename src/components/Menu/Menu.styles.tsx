@@ -90,12 +90,13 @@ export const DropInput = styled.div`
 `;
 
 export const DropInputLabel = styled.div`
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
 
   & p {
-    flex: 1;
     padding: 0;
   }
 `;
@@ -135,7 +136,7 @@ export const SettingsContainer = styled.menu`
   align-items: center;
   gap: 16px;
   padding: 16px 0;
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   background-color: white;
 `;
 

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const AppContainer = styled.div`
   min-height: 100vh;
   margin: 0 auto;
-  max-width: 992px;
-  padding: 32px 144px;
+  max-width: 1000px;
+  padding: 16px 144px;
   padding-bottom: 16px;
   background-color: white;
   font-family: 'Manrope', sans-serif;
@@ -35,7 +35,8 @@ export const AppHeader = styled.div`
 
 export const DemoArea = styled.div`
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 1fr 360px;
   align-items: flex-start;
   padding-bottom: 64px;
+  gap: 88px;
 `;
