@@ -13,8 +13,7 @@ for (let i = controlIcons.length - 1; i > 0; i--) {
   controlIcons[j] = temp;
 }
 
-controlIcons = controlIcons.slice(0, 20);
-controlIcons = [...controlIcons, ...controlIcons, ...controlIcons];
+controlIcons = controlIcons.slice(0, 80);
 
 for (let i = controlIcons.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * i);
@@ -67,7 +66,7 @@ export const iconSetSelector = selector<DisplayIcon[]>({
     let testIcons: DisplayIcon[] = [];
     if (textInput) {
       testIcons = testIcons.concat(
-        new Array(3).fill({ name: "textInput", svgString: textInput })
+        new Array(8).fill({ name: "textInput", svgString: textInput })
       );
     }
 
@@ -76,7 +75,8 @@ export const iconSetSelector = selector<DisplayIcon[]>({
         name: `fileInput-${index}`,
         svgString: file,
       }));
-      testIcons = [...testIcons, ...newIcons, ...newIcons, ...newIcons];
+
+      testIcons = testIcons.concat(new Array(8).fill(newIcons).flat());
     }
 
     if (showControls) testIcons = testIcons.concat(controlIcons);
