@@ -35,8 +35,8 @@ const TestCases: React.FC<{}> = () => {
       (textInput || fileInput[0] || "")
         .replace(/#000000/g, "#EBEAEC")
         .replace(/#000/g, "#EBEAEC")
-        .replace(/black/g, "#EBEAEC"),
-        // .replace(/path/g, `path fill="#EBEAEC"`),
+        .replace(/black/g, "#EBEAEC")
+        .replace(/<svg/g, `<svg fill="#EBEAEC"`),
     [textInput, fileInput]
   );
 
