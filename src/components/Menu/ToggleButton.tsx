@@ -21,8 +21,7 @@ const IndicatorContainer = styled.div`
 `;
 
 const Indicator = styled.div<{ enabled: boolean }>`
-  height: 16px;
-  width: 16px;
+  height: 100%;
   border-radius: 1px;
   box-sizing: border-box;
   background-color: ${({ enabled }) => (enabled ? "#925bff" : "transparent")};
