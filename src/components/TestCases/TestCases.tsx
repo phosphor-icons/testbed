@@ -33,10 +33,11 @@ const TestCases: React.FC<{}> = () => {
   const svgStringDark = useMemo(
     () =>
       (textInput || fileInput[0] || "")
+        .replace(/(<svg.*?)(fill="#?\w+")(.*?>)/, `$1$3`)
+        .replace(/(<svg.*?(?!fill\="#*\w+").*?)>/, `$1 fill="#EBEAEC">`)
         .replace(/#000000/g, "#EBEAEC")
         .replace(/#000/g, "#EBEAEC")
-        .replace(/black/g, "#EBEAEC")
-        .replace(/<svg/g, `<svg fill="#EBEAEC"`),
+        .replace(/black/g, "#EBEAEC"),
     [textInput, fileInput]
   );
 
