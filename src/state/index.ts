@@ -91,3 +91,8 @@ export const iconSetSelector = selector<DisplayIcon[]>({
     return testIcons;
   },
 });
+
+export const customPreviewAtom = atom<DisplayIcon | null>({
+  key: "customPreviewIcon",
+  default: null,
+});

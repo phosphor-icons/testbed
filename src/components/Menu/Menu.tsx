@@ -11,6 +11,7 @@ import {
   iconSizeAtom,
   useControlSetAtom,
   shuffleAtom,
+  customPreviewAtom,
 } from "../../state";
 
 import {
@@ -41,7 +42,8 @@ const Menu: React.FC<{}> = () => {
   const [size, setSize] = useRecoilState(iconSizeAtom);
   const [textInputValue, setTextInputValue] = useRecoilState(textInputAtom);
   const [filenames, setFilenames] = useState<string[]>([]);
-  const [, setFileInputValues] = useRecoilState(fileInputAtom);
+  const setFileInputValues = useSetRecoilState(fileInputAtom);
+  const setCustomPreview = useSetRecoilState(customPreviewAtom);
   const [useControls, setUseControls] = useRecoilState(useControlSetAtom);
   const shuffle = useSetRecoilState(shuffleAtom);
 
@@ -94,6 +96,7 @@ const Menu: React.FC<{}> = () => {
     setTextInputValue("");
     setFileInputValues([]);
     setFilenames([]);
+    setCustomPreview(null);
   };
 
   const handleToggleControls = () => {

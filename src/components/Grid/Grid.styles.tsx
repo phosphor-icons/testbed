@@ -6,6 +6,10 @@ export const GridContainer = styled.div<{ $size: number }>`
   justify-content: space-between;
   gap: ${({ $size }) => $size}px;
 
+  & > * {
+    cursor: pointer;
+  }
+
   & img {
     transition: background 200ms ease;
   }

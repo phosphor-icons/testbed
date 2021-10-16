@@ -1,8 +1,13 @@
 import React from "react";
 import { IconContext } from "phosphor-react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { iconSizeAtom, iconWeightAtom, iconSetSelector } from "../../state";
+import {
+  iconSizeAtom,
+  iconWeightAtom,
+  iconSetSelector,
+  customPreviewAtom,
+} from "../../state";
 import { isIcon } from "../../lib";
 import { GridContainer } from "./Grid.styles";
 
@@ -10,6 +15,7 @@ const Grid: React.FC<{}> = () => {
   const size = useRecoilValue(iconSizeAtom);
   const weight = useRecoilValue(iconWeightAtom);
   const icons = useRecoilValue(iconSetSelector);
+  const setCustomPreview = useSetRecoilState(customPreviewAtom);
 
   return (
     <IconContext.Provider
@@ -18,7 +24,10 @@ const Grid: React.FC<{}> = () => {
       <GridContainer $size={size}>
         {icons.map((Icon, index) =>
           isIcon(Icon) ? (
-            <Icon key={`${Icon.displayName}-${index}`} />
+            <Icon
+              key={`${Icon.displayName}-${index}`}
+              onClick={() => setCustomPreview(Icon)}
+            />
           ) : (
             <img
               key={`${Icon.name}-${index}`}
@@ -26,6 +35,7 @@ const Grid: React.FC<{}> = () => {
               width={size}
               src={`data:image/svg+xml,${encodeURIComponent(Icon.svgString)}`}
               alt=""
+              onClick={() => setCustomPreview(Icon)}
             />
           )
         )}

@@ -9,9 +9,16 @@ import {
   Star,
   UserCircle,
   IconContext,
+  Icon,
 } from "phosphor-react";
 
-import { textInputAtom, fileInputAtom, iconWeightAtom } from "../../state";
+import { isIcon } from "../../lib";
+import {
+  textInputAtom,
+  fileInputAtom,
+  iconWeightAtom,
+  customPreviewAtom,
+} from "../../state";
 import {
   TestCaseContainer,
   IconButtonContainer,
@@ -28,23 +35,38 @@ import {
 const TestCases: React.FC<{}> = () => {
   const textInput = useRecoilValue(textInputAtom);
   const fileInput = useRecoilValue(fileInputAtom);
+  const customPreviewIcon = useRecoilValue(customPreviewAtom);
   const weight = useRecoilValue(iconWeightAtom);
+
+  const isControlPreview = !!customPreviewIcon && isIcon(customPreviewIcon);
+  const ControlIcon = customPreviewIcon as Icon;
+  const customSource =
+    !!customPreviewIcon && !isIcon(customPreviewIcon)
+      ? customPreviewIcon?.svgString
+      : null;
 
   const svgStringDark = useMemo(
     () =>
-      (textInput || fileInput[0] || "")
-        .replace(/(<svg.*?)(fill="#?\w+")(.*?>)/, `$1$3`)
-        .replace(/(<svg.*?(?!fill\="#*\w+").*?)>/, `$1 fill="#EBEAEC">`)
-        .replace(/#000000/g, "#EBEAEC")
-        .replace(/#000/g, "#EBEAEC")
-        .replace(/black/g, "#EBEAEC"),
-    [textInput, fileInput]
+      (customSource || textInput || fileInput[0] || "")
+        // .replace(/(<svg.*?)(fill="#?\w+")(.*?>)/, `$1$3`)
+        // .replace(/(<svg.*?(?!fill\="#*\w+").*?)>/, `$1 fill="#EBEAEC">`)
+        // .replace(/#000000/g, "#EBEAEC")
+        // .replace(/#000/g, "#EBEAEC")
+        // .replace(/black/g, "#EBEAEC"),
+        .replace(/fill="#?(?!none)(?!transparent)\w+"/g, "fill=\"#EBEAEC\"")
+        .replace(/stroke="#?(?!none)(?!transparent)\w+"/g, "stroke=\"#EBEAEC\""),
+    [textInput, fileInput, customSource]
   );
 
   const svgStringLight = useMemo(
     () => svgStringDark.replace(/#EBEAEC/gi, "#35313D"),
     [svgStringDark]
   );
+
+  const displayIcon =
+    !!customPreviewIcon && !isIcon(customPreviewIcon)
+      ? customPreviewIcon.svgString
+      : svgStringDark;
 
   return (
     <IconContext.Provider
@@ -53,7 +75,9 @@ const TestCases: React.FC<{}> = () => {
       <TestCaseContainer>
         <IconButtonContainer>
           <IconButton $size={72} $radius={36} $dark>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={48} />
+            ) : svgStringDark ? (
               <img
                 height={48}
                 width={48}
@@ -65,7 +89,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={56} $radius={36} $dark>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={32} />
+            ) : svgStringDark ? (
               <img
                 height={32}
                 width={32}
@@ -77,7 +103,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={48} $radius={36} $dark>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={24} />
+            ) : svgStringDark ? (
               <img
                 height={24}
                 width={24}
@@ -89,7 +117,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={32} $radius={36} $dark>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={16} />
+            ) : svgStringDark ? (
               <img
                 height={16}
                 width={16}
@@ -101,7 +131,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={72} $radius={36}>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={48} />
+            ) : svgStringDark ? (
               <img
                 height={48}
                 width={48}
@@ -113,7 +145,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={56} $radius={20}>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={32} />
+            ) : svgStringDark ? (
               <img
                 height={32}
                 width={32}
@@ -125,7 +159,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={48} $radius={8}>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={24} />
+            ) : svgStringDark ? (
               <img
                 height={24}
                 width={24}
@@ -137,7 +173,9 @@ const TestCases: React.FC<{}> = () => {
             )}
           </IconButton>
           <IconButton $size={32} $radius={0}>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={16} />
+            ) : svgStringDark ? (
               <img
                 height={16}
                 width={16}
@@ -151,7 +189,9 @@ const TestCases: React.FC<{}> = () => {
         </IconButtonContainer>
         <TextButtonContainer>
           <TextButton>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={24} />
+            ) : svgStringDark ? (
               <img
                 height={24}
                 width={24}
@@ -164,7 +204,9 @@ const TestCases: React.FC<{}> = () => {
             Button
           </TextButton>
           <TextButton $large>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={48} />
+            ) : svgStringDark ? (
               <img
                 height={48}
                 width={48}
@@ -179,7 +221,9 @@ const TestCases: React.FC<{}> = () => {
         </TextButtonContainer>
         <TestUIContainer>
           <LargeIconContainer>
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={144} />
+            ) : svgStringDark ? (
               <img
                 height={144}
                 width={144}
@@ -196,7 +240,9 @@ const TestCases: React.FC<{}> = () => {
               <Folder size={24} /> Menu Item 1
             </MockMenuItem>
             <MockMenuItem>
-              {svgStringDark ? (
+              {isControlPreview ? (
+                <ControlIcon size={24} />
+              ) : svgStringDark ? (
                 <img
                   height={24}
                   width={24}
@@ -217,7 +263,9 @@ const TestCases: React.FC<{}> = () => {
           <MockToolbar>
             <House size={24} />
             <Star size={24} />
-            {svgStringDark ? (
+            {isControlPreview ? (
+              <ControlIcon size={24} />
+            ) : svgStringDark ? (
               <img
                 height={24}
                 width={24}
