@@ -1,24 +1,20 @@
 import React from "react";
 
-import { AppContainer, AppHeader, DemoArea } from "./App.styles";
-import { Menu, Grid, TestCases } from "..";
-
-
+import { AppStyles, AppContainer, DemoArea } from "./App.styles";
+import { Header, Menu, Grid, TestCases } from "..";
 
 const App: React.FC<{}> = () => {
   return (
     <AppContainer>
-      <AppHeader>
-        <h1>Phosphor Testbed</h1>
-        <p>Test new icons for consistency, alignment, usability in context</p>
-      </AppHeader>
+      <AppStyles />
+      <Header />
       <Menu />
       <DemoArea>
-        <Grid />
         <TestCases />
+        <Grid />
       </DemoArea>
     </AppContainer>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { MainButton } from "./Menu.styles";
+import { MainButton } from "../App/App.styles";
 
 interface ToggleButtonProps
   extends React.DetailedHTMLProps<

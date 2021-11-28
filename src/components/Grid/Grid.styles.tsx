@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const GridContainer = styled.div<{ $size: number }>`
-  display: inline-flex;
+  display: flex;
+  align-content: flex-start;
   flex-flow: wrap;
   justify-content: space-between;
-  gap: ${({ $size }) => $size}px;
+  gap: ${({ $size }) => 8 * Math.sqrt($size) - 16}px;
 
   & > * {
     cursor: pointer;
