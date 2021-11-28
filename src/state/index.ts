@@ -1,8 +1,8 @@
 import { atom, selector } from "recoil";
 import * as IconLibrary from "phosphor-react";
-import { Icon } from "phosphor-react";
+import { Icon, IconWeight } from "phosphor-react";
 
-import { Weight, isIcon } from "../lib";
+import { isIcon, duplicateArray } from "../lib";
 
 let controlIcons: Icon[] = Object.values(IconLibrary).filter(isIcon);
 
@@ -32,7 +32,7 @@ export const fileInputAtom = atom<string[]>({
   default: [],
 });
 
-export const iconWeightAtom = atom<Weight>({
+export const iconWeightAtom = atom<IconWeight>({
   key: "iconWeightAtom",
   default: "regular",
 });
@@ -62,11 +62,14 @@ export const iconSetSelector = selector<DisplayIcon[]>({
     const showControls = get(useControlSetAtom);
     const textInput = get(textInputAtom);
     const fileInput = get(fileInputAtom);
+    const size = get(iconSizeAtom);
+
+    const copies = Math.floor(1.9 + 40 * Math.exp(-0.0939 * size));
 
     let testIcons: DisplayIcon[] = [];
     if (textInput) {
       testIcons = testIcons.concat(
-        new Array(8).fill({ name: "textInput", svgString: textInput })
+        new Array(10).fill({ name: "textInput", svgString: textInput })
       );
     }
 
@@ -76,10 +79,11 @@ export const iconSetSelector = selector<DisplayIcon[]>({
         svgString: file,
       }));
 
-      testIcons = testIcons.concat(new Array(8).fill(newIcons).flat());
+      testIcons = testIcons.concat(new Array(10).fill(newIcons).flat());
     }
 
     if (showControls) testIcons = testIcons.concat(controlIcons);
+    if (copies > 1) testIcons = duplicateArray(testIcons, copies);
 
     for (let i = testIcons.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i);
