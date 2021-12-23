@@ -5,17 +5,17 @@
     "main.js.map": "/phosphor-testbed/static/js/main.df8d422c.chunk.js.map",
     "runtime-main.js": "/phosphor-testbed/static/js/runtime-main.bacafef9.js",
     "runtime-main.js.map": "/phosphor-testbed/static/js/runtime-main.bacafef9.js.map",
-    "static/js/2.82374775.chunk.js": "/phosphor-testbed/static/js/2.82374775.chunk.js",
-    "static/js/2.82374775.chunk.js.map": "/phosphor-testbed/static/js/2.82374775.chunk.js.map",
+    "static/js/2.f2a6a745.chunk.js": "/phosphor-testbed/static/js/2.f2a6a745.chunk.js",
+    "static/js/2.f2a6a745.chunk.js.map": "/phosphor-testbed/static/js/2.f2a6a745.chunk.js.map",
     "index.html": "/phosphor-testbed/index.html",
-    "precache-manifest.58d4d347600148c685da2bbda0e4b51e.js": "/phosphor-testbed/precache-manifest.58d4d347600148c685da2bbda0e4b51e.js",
+    "precache-manifest.e07d4b6679d99cd5086e1426b2580161.js": "/phosphor-testbed/precache-manifest.e07d4b6679d99cd5086e1426b2580161.js",
     "service-worker.js": "/phosphor-testbed/service-worker.js",
     "static/css/main.9b39907f.chunk.css.map": "/phosphor-testbed/static/css/main.9b39907f.chunk.css.map",
-    "static/js/2.82374775.chunk.js.LICENSE.txt": "/phosphor-testbed/static/js/2.82374775.chunk.js.LICENSE.txt"
+    "static/js/2.f2a6a745.chunk.js.LICENSE.txt": "/phosphor-testbed/static/js/2.f2a6a745.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bacafef9.js",
-    "static/js/2.82374775.chunk.js",
+    "static/js/2.f2a6a745.chunk.js",
     "static/css/main.9b39907f.chunk.css",
     "static/js/main.df8d422c.chunk.js"
   ]
