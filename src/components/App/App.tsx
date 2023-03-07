@@ -6,6 +6,7 @@ import { Header, Menu, Grid, TestCases } from "..";
 const App: React.FC<{}> = () => {
   return (
     <AppContainer>
+      {/* @ts-ignore */}
       <AppStyles />
       <Header />
       <Menu />

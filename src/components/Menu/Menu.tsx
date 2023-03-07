@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { Shuffle } from "phosphor-react";
+import { Shuffle } from "@phosphor-icons/react";
 
 import {
   iconWeightAtom,

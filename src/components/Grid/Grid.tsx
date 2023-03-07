@@ -1,5 +1,5 @@
 import React from "react";
-import { IconContext } from "phosphor-react";
+import { IconContext } from "@phosphor-icons/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import {

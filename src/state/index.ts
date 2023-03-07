@@ -1,26 +1,17 @@
 import { atom, selector } from "recoil";
-import * as IconLibrary from "phosphor-react";
-import { Icon, IconWeight } from "phosphor-react";
+import { icons } from "@phosphor-icons/core";
+import * as IconLibrary from "@phosphor-icons/react";
+import { Icon, IconWeight } from "@phosphor-icons/react";
 
-import { isIcon, duplicateArray } from "../lib";
+import { duplicateArray, sampleArrayItems } from "../lib";
 
-let controlIcons: Icon[] = Object.values(IconLibrary).filter(isIcon);
-
-for (let i = controlIcons.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * i);
-  const temp = controlIcons[i];
-  controlIcons[i] = controlIcons[j];
-  controlIcons[j] = temp;
-}
-
-controlIcons = controlIcons.slice(0, 80);
-
-for (let i = controlIcons.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * i);
-  const temp = controlIcons[i];
-  controlIcons[i] = controlIcons[j];
-  controlIcons[j] = temp;
-}
+const controlIcons: Icon[] = sampleArrayItems(
+  icons.map(
+    ({ pascal_name }) =>
+      IconLibrary[pascal_name as keyof typeof IconLibrary] as Icon
+  ),
+  80
+);
 
 export const textInputAtom = atom<string>({
   key: "textInputAtom",

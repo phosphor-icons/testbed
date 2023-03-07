@@ -19,7 +19,7 @@ import {
   Robot,
   Leaf,
   Ghost,
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 
 import { isIcon } from "../../lib";
 import {

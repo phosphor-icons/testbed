@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Dropzone from "react-dropzone";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { IconWeight } from "phosphor-react";
+import { IconWeight } from "@phosphor-icons/react";
 
 import {
   textInputAtom,

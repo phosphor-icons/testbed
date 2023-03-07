@@ -1,8 +1,8 @@
 import React from "react";
 import Select from "react-dropdown-select";
+import { IconWeight as Weight } from "@phosphor-icons/react";
 import { SetterOrUpdater } from "recoil";
 
-import { Weight } from "../../lib";
 import "./StyleSelect.css";
 
 interface StyleSelectProps {
