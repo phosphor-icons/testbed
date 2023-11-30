@@ -1,7 +1,7 @@
 {
   "name": "phosphor-testbed",
-  "homepage": "https://phosphor-icons.github.io/testbed",
-  "version": "2.0.0",
+  "homepage": "https://testbed.phosphoricons.com",
+  "version": "2.0.1",
   "private": true,
   "dependencies": {
     "@phosphor-icons/core": "^2.0.2",
