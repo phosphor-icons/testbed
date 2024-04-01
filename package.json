@@ -1,11 +1,11 @@
 {
   "name": "phosphor-testbed",
   "homepage": "https://testbed.phosphoricons.com",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
-    "@phosphor-icons/core": "^2.0.2",
-    "@phosphor-icons/react": "^2.0.4",
+    "@phosphor-icons/core": "^2.1.1",
+    "@phosphor-icons/react": "^2.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.9.3",
